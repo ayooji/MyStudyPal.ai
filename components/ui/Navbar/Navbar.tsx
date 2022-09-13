@@ -24,12 +24,25 @@ const Navbar = () => {
               </a>
             </Link>
             <nav className="space-x-2 ml-6 hidden lg:block">
+            <Link href="/">
+                <a className={s.link}>Home</a>
+              </Link>
+            <Link href="/account">
+                <a className={s.link}>Account</a>
+              </Link>
+              <Link href="/signin">
+                <a className={s.link}>Dashboard</a>
+              </Link>
+              <Link href="/">
+                <a className={s.link}>Blog</a>
+              </Link>
               <Link href="/">
                 <a className={s.link}>Pricing</a>
               </Link>
-              <Link href="/account">
-                <a className={s.link}>Account</a>
+              <Link href="/">
+                <a className={s.link}>Support</a>
               </Link>
+              
             </nav>
           </div>
 
