@@ -35,7 +35,7 @@ export default function Layout({ children, meta: pageMeta }: Props) {
       <Head>
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
-        <link href="/favicon.ico" rel="shortcut icon" />
+        <link href="/logo.jpg" rel="shortcut icon" />
         <meta content={meta.description} name="description" />
         <meta property="og:url" content={`https://my-study-pal-ai.vercel.app/`} />
         <meta property="og:type" content="website" />
