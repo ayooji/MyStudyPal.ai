@@ -30,7 +30,7 @@ const Navbar = () => {
             <Link href="/account">
                 <a className={s.link}>Account</a>
               </Link>
-              <Link href="/signin">
+              <Link href="/dashboard">
                 <a className={s.link}>Dashboard</a>
               </Link>
               <Link href="/">

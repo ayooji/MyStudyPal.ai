@@ -17,7 +17,7 @@ export default function Layout({ children, meta: pageMeta }: Props) {
   const meta = {
     title: 'Mystudypal.ai',
     description: 'The best study AI',
-    canonical: 'https://mystudypal.ai',
+    canonical: 'https://my-study-pal-ai.vercel.app/',
     meta:{
       charset: 'UTF-8',
       name: {
