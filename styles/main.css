@@ -50,3 +50,20 @@ a {
 .height-screen-helper {
   height: calc(100vh - 80px);
 }
+.list {
+  color: black;
+}
+
+.list-button {
+  background: rgb(1, 0, 0);
+  border: 1px solid #999;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 32px;
+  line-height: 30px;
+  padding: 0 15px;
+}
+
+.list-button:hover {
+  background: #681bf8;
+}

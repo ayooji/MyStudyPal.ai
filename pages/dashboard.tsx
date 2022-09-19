@@ -2,6 +2,7 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import React, { useState } from 'react';
 
 import styled from 'styled-components'
 
@@ -57,6 +58,16 @@ function classNames(...classes: string[]) {
 }
 
 export default function Example() {
+  const [selected, setSelected] = useState('');
+  const [category, setCategory] = useState('');
+
+  const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
+    setSelected(e.currentTarget.innerHTML);
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      setCategory(e.target.value);
+    };
+    
+  };
   return (
     <>
       {/*
@@ -219,19 +230,35 @@ export default function Example() {
         </header>
         <main>
           <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-            {/* Replace with your content */}
-            <div className="px-4 py-6 sm:px-0">
-            <Form>
-                    <label>
-                        Type your question or problem:
-                        <input type="text" />
-                    </label>
-                    <input type="submit" value="Submit" />
-                </Form>
-            </div>
-              <div className="h-96 rounded-lg border-4 border-dashed border-gray-200" />
-              
-            {/* /End replace */}
+
+            <div className="flex">
+            <div className="left-sidebar w-1/4 bg-black p-4">
+        <ul className="list-black">
+        <li className="list-button" onClick={handleClick}>Math</li>
+          <li className="list-button" onClick={handleClick}>Science</li>
+          <li className="list-button" onClick={handleClick}>English</li>
+          <li className="list-button" onClick={handleClick}>History</li>
+          <li className="list-button" onClick={handleClick}>Foreign Language</li>
+          <li className="list-button" onClick={handleClick}>Code</li>
+          <li className="list-button" onClick={handleClick}>Essay</li>
+          <li className="list-button" onClick={handleClick}>Article</li>
+          <li className="list-button" onClick={handleClick}>Research Paper</li>
+          <li className="list-button" onClick={handleClick}>Medical</li>
+          <li className="list-button" onClick={handleClick}>Health</li>
+          <li className="list-button" onClick={handleClick}>Build Essay</li>
+          <li className="list-button" onClick={handleClick}>Write Cover Letter</li>
+          <li className="list-button" onClick={handleClick}>Any Other School Problem</li>
+        </ul>
+      </div>
+      <div className="result-section w-3/4 bg-gray-200 p-4">
+        <div className="board">
+          {selected !== '' && <h2>You selected: {selected}</h2>}
+          <textarea className="question" placeholder="Write your question here"></textarea>
+          <button className="answer-button">Get Answer</button>
+          <p>Result goes here</p>
+        </div>
+      </div>
+    </div>
           </div>
         </main>
       </div>

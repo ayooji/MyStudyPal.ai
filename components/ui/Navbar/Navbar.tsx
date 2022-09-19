@@ -40,6 +40,9 @@ const Navbar = () => {
                 <a className={s.link}>Pricing</a>
               </Link>
               <Link href="/">
+                <a className={s.link}>FAQ</a>
+              </Link>
+              <Link href="/">
                 <a className={s.link}>Support</a>
               </Link>
               
