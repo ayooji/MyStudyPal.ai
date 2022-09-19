@@ -12,7 +12,7 @@ export default function Footer() {
           <Link href="/">
             <a className="flex flex-initial items-center font-bold md:mr-24">
               <span className="rounded-full border border-zinc-700 mr-2">
-                <Logo />
+                <Logo viewBox={''} alt={''} height={''} src={''} className={''} />
               </span>
               <span>MYSTUDYPAL.AI</span>
             </a>
