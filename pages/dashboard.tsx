@@ -252,7 +252,7 @@ export default function Example() {
       </div>
       <div className="result-section w-3/4 bg-gray-200 p-4">
         <div className="board">
-          {selected !== '' && <h2>You selected: {selected}</h2>}
+          {selected !== '' && <h3>You selected: {selected}</h3>}
           <textarea className="question" placeholder="Write your question here"></textarea>
           <button className="answer-button">Get Answer</button>
           <p>Result goes here</p>
