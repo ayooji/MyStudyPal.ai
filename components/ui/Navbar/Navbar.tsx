@@ -20,7 +20,7 @@ const Navbar = () => {
           <div className="flex flex-1 items-center">
             <Link href="/">
               <a className={s.logo} aria-label="Logo">
-                <Logo viewBox={''} alt={''} height={''} src={''} className={''} />
+                <Logo alt={''} height={''} src={''} className={''} />
               </a>
             </Link>
             <nav className="space-x-2 ml-6 hidden lg:block">
