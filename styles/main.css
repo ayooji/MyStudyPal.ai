@@ -67,3 +67,50 @@ a {
 .list-button:hover {
   background: #681bf8;
 }
+
+.board {
+  color: #000;
+  
+  
+}
+
+.answer-button {
+  background: rgb(244, 245, 244);
+  border: 1px solid rgb(114, 29, 234);
+  border-radius: 4px;
+  cursor: pointer;
+  height: 32px;
+  line-height: 30px;
+  padding: 0 15px;
+  text-decoration-color: white;
+  margin-left: 20;
+  
+}
+
+.answer-button:hover {
+  background: #b795fc;
+}
+
+
+.result-area {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:flex-start;
+  width: 100%;
+  padding: 2rem;
+  height: 80vh;
+  overflow: hidden;
+  border: 1px solid rgb(153, 153, 153);
+  border-radius: 4px;
+  white-space: pre-line;
+}
+.list {
+  color: rgb(255, 255, 255);
+}
+.question {
+  margin-bottom: 15px;
+  white-space: pre-line;
+}

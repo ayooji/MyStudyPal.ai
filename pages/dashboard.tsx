@@ -2,7 +2,7 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import styled from 'styled-components'
 
@@ -59,15 +59,23 @@ function classNames(...classes: string[]) {
 
 export default function Example() {
   const [selected, setSelected] = useState('');
-  const [category, setCategory] = useState('');
+  const [result, setResult] = useState('');
 
   const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
     setSelected(e.currentTarget.innerHTML);
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-      setCategory(e.target.value);
-    };
-    
   };
+
+  const handleResultChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setResult(e.target.value);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setResult(result + '');
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [result]);
+    
   return (
     <>
       {/*
@@ -231,10 +239,10 @@ export default function Example() {
         <main>
           <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
 
-            <div className="flex">
-            <div className="left-sidebar w-1/4 bg-black p-4">
-        <ul className="list-black">
-        <li className="list-button" onClick={handleClick}>Math</li>
+          <div className="flex">
+        <div className="left-sidebar w-1/4 bg-black p-4">
+        <ul className="list">
+          <li className="list-button" onClick={handleClick}>Math</li>
           <li className="list-button" onClick={handleClick}>Science</li>
           <li className="list-button" onClick={handleClick}>English</li>
           <li className="list-button" onClick={handleClick}>History</li>
@@ -252,13 +260,15 @@ export default function Example() {
       </div>
       <div className="result-section w-3/4 bg-gray-200 p-4">
         <div className="board">
-          {selected !== '' && <h3>You selected: {selected}</h3>}
-          <textarea className="question" placeholder="Write your question here"></textarea>
+          {selected !== '' && <h2>You selected: {selected}</h2>}
+          <textarea className="question" placeholder="Write your question here" onChange={handleResultChange} value={result}></textarea>
           <button className="answer-button">Get Answer</button>
-          <p>Result goes here</p>
-        </div>
+          <div className="result-area">
+            {result}
+          </div>
+          </div>
       </div>
-    </div>
+        </div>
           </div>
         </main>
       </div>
