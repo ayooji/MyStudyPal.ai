@@ -3,6 +3,7 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import React, { useState, useEffect } from 'react';
+import ReactTooltip from 'react-tooltip';
 
 import styled from 'styled-components'
 
@@ -242,20 +243,21 @@ export default function Example() {
           <div className="flex">
         <div className="left-sidebar w-1/4 bg-black p-4">
         <ul className="list">
-          <li className="list-button" onClick={handleClick}>Math</li>
-          <li className="list-button" onClick={handleClick}>Science</li>
-          <li className="list-button" onClick={handleClick}>English</li>
-          <li className="list-button" onClick={handleClick}>History</li>
-          <li className="list-button" onClick={handleClick}>Foreign Language</li>
-          <li className="list-button" onClick={handleClick}>Code</li>
-          <li className="list-button" onClick={handleClick}>Essay</li>
-          <li className="list-button" onClick={handleClick}>Article</li>
-          <li className="list-button" onClick={handleClick}>Research Paper</li>
-          <li className="list-button" onClick={handleClick}>Medical</li>
-          <li className="list-button" onClick={handleClick}>Health</li>
-          <li className="list-button" onClick={handleClick}>Build Essay</li>
-          <li className="list-button" onClick={handleClick}>Write Cover Letter</li>
-          <li className="list-button" onClick={handleClick}>Any Other School Problem</li>
+          <li className="list-button" data-tip="Type your math problem and the kind of math problem" onClick={handleClick}>📐 Math</li>
+          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>🔬 Science</li>
+          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>📚 English</li>
+          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>🏛 History</li>
+          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>🌎 Foreign Language</li>
+          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>💻 Code</li>
+          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>📝 Essay</li>
+          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>📰 Article</li>
+          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>📃 Research Paper</li>
+          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>🏥 Medical</li>
+          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>🏋 Health</li>
+          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>📄 Build Resume</li>
+          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>📧 Write Cover Letter</li>
+          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>🏫 Any Other School Problem</li>
+          <ReactTooltip />
         </ul>
       </div>
       <div className="result-section w-3/4 bg-gray-200 p-4">
@@ -265,7 +267,9 @@ export default function Example() {
           <button className="answer-button">Get Answer</button>
           <div className="result-area">
             {result}
+            
           </div>
+        
           </div>
       </div>
         </div>
