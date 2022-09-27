@@ -9,6 +9,7 @@ import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs';
 import { AppProps } from 'next/app';
 import { MyUserContextProvider } from 'utils/useUser';
 
+
 export default function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     document.body.classList?.remove('loading');
@@ -20,6 +21,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <MyUserContextProvider supabaseClient={supabaseClient}>
           <Layout>
             <Component {...pageProps} />
+           
           </Layout>
         </MyUserContextProvider>
       </UserProvider>
