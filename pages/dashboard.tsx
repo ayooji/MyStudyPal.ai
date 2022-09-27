@@ -246,47 +246,52 @@ export default function Example() {
           <div className="flex">
            
         <div className="left-sidebar w-1/4 bg-black p-4">
+        <p className="tooltip-text">Use the hints on each subject to enter your question to get the best answer</p>
+        <p className="click-to-get-help"> Click a subject to get help<span role="img" aria-label=""> 😉</span></p>
         <ul className="list">
+
         <OverlayTrigger placement="top" overlay={<Tooltip id="math">Type your math problem and the kind of math problem</Tooltip>}>
    <li className="list-button" data-for="math" onClick={handleClick}>📐 Math</li>
 </OverlayTrigger>
-<OverlayTrigger placement="top" overlay={<Tooltip id="science">What is your essay topic?</Tooltip>}>
+<OverlayTrigger placement="top" overlay={<Tooltip id="science">What is the Topic of your Science problem, What kind of Science, what grade level?</Tooltip>}>
    <li className="list-button" data-for="science" onClick={handleClick}>🔬 Science</li>
 </OverlayTrigger>
-<OverlayTrigger placement="top" overlay={<Tooltip id="english">What is your essay topic?</Tooltip>}>
+<OverlayTrigger placement="top" overlay={<Tooltip id="english">What's the Topic of your English problem, What kind of English, what grade level?</Tooltip>}>
    <li className="list-button" data-for="english" onClick={handleClick}>📚 English</li>
 </OverlayTrigger>
-<OverlayTrigger placement="top" overlay={<Tooltip id="history">What is your essay topic?</Tooltip>}>
+<OverlayTrigger placement="top" overlay={<Tooltip id="history">What's the Topic of your History problem, What kind of History, what grade level?</Tooltip>}>
    <li className="list-button" data-for="history" onClick={handleClick}>🏛 History</li>
 </OverlayTrigger>
-<OverlayTrigger placement="top" overlay={<Tooltip id="foreignlanguage">What is your essay topic?</Tooltip>}>
+<OverlayTrigger placement="top" overlay={<Tooltip id="foreignlanguage">What is the Topic of your language problem and level?</Tooltip>}>
    <li className="list-button" data-for="foreignlanguage" onClick={handleClick}>🌎 Foreign Language</li>
 </OverlayTrigger>
-<OverlayTrigger placement="top" overlay={<Tooltip id="code">What is your essay topic?</Tooltip>}>
+<OverlayTrigger placement="top" overlay={<Tooltip id="code">What is your Code problem, What is the program language?</Tooltip>}>
    <li className="list-button" data-for="code" onClick={handleClick}>💻 Code</li>
 </OverlayTrigger>
-<OverlayTrigger placement="top" overlay={<Tooltip id="essay">What is your essay topic?</Tooltip>}>
+<OverlayTrigger placement="top" overlay={<Tooltip id="essay">What is the Topic of your essay and what kind of essay it is?</Tooltip>}>
    <li className="list-button" data-for="essay" onClick={handleClick}>📝 Essay</li>
 </OverlayTrigger>
-<OverlayTrigger placement="top" overlay={<Tooltip id="article">What is your essay topic?</Tooltip>}>
+<OverlayTrigger placement="top" overlay={<Tooltip id="article">What is the Topic of your article, What kind of article, number of words, what grade level?</Tooltip>}>
    <li className="list-button" data-for="article" onClick={handleClick}>📰 Article</li>
 </OverlayTrigger>
-<OverlayTrigger placement="top" overlay={<Tooltip id="researchpaper">What is your essay topic?</Tooltip>}>
+<OverlayTrigger placement="top" overlay={<Tooltip id="researchpaper">What is the Topic of your research paper, What kind of research paper, Number of words, what grade level?</Tooltip>}>
    <li className="list-button" data-for="researchpaper" onClick={handleClick}>📃 Research Paper</li>
 </OverlayTrigger>
-<OverlayTrigger placement="top" overlay={<Tooltip id="medical">What is your essay topic?</Tooltip>}>
+<OverlayTrigger placement="top" overlay={<Tooltip id="medical">What is the Topic of your medical problem, What kind of medical, what grade level?</Tooltip>}>
    <li className="list-button" data-for="medical" onClick={handleClick}>🏥 Medical</li>
 </OverlayTrigger>
-<OverlayTrigger placement="top" overlay={<Tooltip id="health">What is your essay topic?</Tooltip>}>
+<OverlayTrigger placement="top" overlay={<Tooltip id="health">What is your Health problem, What kind of Health, what grade level?</Tooltip>}>
    <li className="list-button" data-for="health" onClick={handleClick}>🏋 Health</li>
 </OverlayTrigger>
-<OverlayTrigger placement="top" overlay={<Tooltip id="resume">What is your essay topic?</Tooltip>}>
+<OverlayTrigger placement="top" overlay={<Tooltip id="resume">What is your name, What's your email, What is your address,
+What is your phone number, What is the position you are applying for, What is the company you are applying to, What are the qualifications for the position ?</Tooltip>}>
    <li className="list-button" data-for="resume" onClick={handleClick}>📄 Build Resume</li>
 </OverlayTrigger>
-<OverlayTrigger placement="top" overlay={<Tooltip id="coverletter">What is your essay topic?</Tooltip>}>
+<OverlayTrigger placement="top" overlay={<Tooltip id="coverletter">What is your name, What's your email, What is your address,
+What is your phone number, What is the position you are applying for?</Tooltip>}>
    <li className="list-button" data-for="coverletter" onClick={handleClick}>📧 Write Cover Letter</li>
 </OverlayTrigger>
-<OverlayTrigger placement="top" overlay={<Tooltip id="other">What is your essay topic?</Tooltip>}>
+<OverlayTrigger placement="top" overlay={<Tooltip id="other">What is your problem, What kind of problem and what grade level</Tooltip>}>
    <li className="list-button" data-for="other" onClick={handleClick}>🏫 Any Other School Problem</li>
 </OverlayTrigger>
         
