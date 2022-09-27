@@ -3,15 +3,11 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon,PaperClipIcon } from '@heroicons/react/24/outline'
 import React, { useState, useEffect } from 'react';
-import ReactTooltip from 'react-tooltip';
-
+import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import styled from 'styled-components'
-import { useRouter } from 'next/router'
-import {
-  Manager,
-  Reference,
-  Popper as ReactPopper
-} from 'react-popper';
+
+
+
 
 
 
@@ -248,24 +244,56 @@ export default function Example() {
           <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
 
           <div className="flex">
+           
         <div className="left-sidebar w-1/4 bg-black p-4">
         <ul className="list">
-          <li className="list-button" data-tip="Type your math problem and the kind of math problem" onClick={handleClick}>📐 Math</li>
-          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>🔬 Science</li>
-          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>📚 English</li>
-          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>🏛 History</li>
-          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>🌎 Foreign Language</li>
-          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>💻 Code</li>
-          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>📝 Essay</li>
-          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>📰 Article</li>
-          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>📃 Research Paper</li>
-          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>🏥 Medical</li>
-          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>🏋 Health</li>
-          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>📄 Build Resume</li>
-          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>📧 Write Cover Letter</li>
-          <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>🏫 Any Other School Problem</li>
-          
-        </ul>
+        <OverlayTrigger placement="top" overlay={<Tooltip id="math">Type your math problem and the kind of math problem</Tooltip>}>
+   <li className="list-button" data-for="math" onClick={handleClick}>📐 Math</li>
+</OverlayTrigger>
+<OverlayTrigger placement="top" overlay={<Tooltip id="science">What is your essay topic?</Tooltip>}>
+   <li className="list-button" data-for="science" onClick={handleClick}>🔬 Science</li>
+</OverlayTrigger>
+<OverlayTrigger placement="top" overlay={<Tooltip id="english">What is your essay topic?</Tooltip>}>
+   <li className="list-button" data-for="english" onClick={handleClick}>📚 English</li>
+</OverlayTrigger>
+<OverlayTrigger placement="top" overlay={<Tooltip id="history">What is your essay topic?</Tooltip>}>
+   <li className="list-button" data-for="history" onClick={handleClick}>🏛 History</li>
+</OverlayTrigger>
+<OverlayTrigger placement="top" overlay={<Tooltip id="foreignlanguage">What is your essay topic?</Tooltip>}>
+   <li className="list-button" data-for="foreignlanguage" onClick={handleClick}>🌎 Foreign Language</li>
+</OverlayTrigger>
+<OverlayTrigger placement="top" overlay={<Tooltip id="code">What is your essay topic?</Tooltip>}>
+   <li className="list-button" data-for="code" onClick={handleClick}>💻 Code</li>
+</OverlayTrigger>
+<OverlayTrigger placement="top" overlay={<Tooltip id="essay">What is your essay topic?</Tooltip>}>
+   <li className="list-button" data-for="essay" onClick={handleClick}>📝 Essay</li>
+</OverlayTrigger>
+<OverlayTrigger placement="top" overlay={<Tooltip id="article">What is your essay topic?</Tooltip>}>
+   <li className="list-button" data-for="article" onClick={handleClick}>📰 Article</li>
+</OverlayTrigger>
+<OverlayTrigger placement="top" overlay={<Tooltip id="researchpaper">What is your essay topic?</Tooltip>}>
+   <li className="list-button" data-for="researchpaper" onClick={handleClick}>📃 Research Paper</li>
+</OverlayTrigger>
+<OverlayTrigger placement="top" overlay={<Tooltip id="medical">What is your essay topic?</Tooltip>}>
+   <li className="list-button" data-for="medical" onClick={handleClick}>🏥 Medical</li>
+</OverlayTrigger>
+<OverlayTrigger placement="top" overlay={<Tooltip id="health">What is your essay topic?</Tooltip>}>
+   <li className="list-button" data-for="health" onClick={handleClick}>🏋 Health</li>
+</OverlayTrigger>
+<OverlayTrigger placement="top" overlay={<Tooltip id="resume">What is your essay topic?</Tooltip>}>
+   <li className="list-button" data-for="resume" onClick={handleClick}>📄 Build Resume</li>
+</OverlayTrigger>
+<OverlayTrigger placement="top" overlay={<Tooltip id="coverletter">What is your essay topic?</Tooltip>}>
+   <li className="list-button" data-for="coverletter" onClick={handleClick}>📧 Write Cover Letter</li>
+</OverlayTrigger>
+<OverlayTrigger placement="top" overlay={<Tooltip id="other">What is your essay topic?</Tooltip>}>
+   <li className="list-button" data-for="other" onClick={handleClick}>🏫 Any Other School Problem</li>
+</OverlayTrigger>
+        
+      </ul>
+
+      
+       
       </div>
       <div className="result-section w-3/4 bg-gray-200 p-4">
         <div className="board">
@@ -273,24 +301,22 @@ export default function Example() {
           <textarea className="question" placeholder="Write your question here" onChange={handleResultChange} value={result}></textarea>
           <button className="answer-button">Get Answer</button>
           <div className="result-area">
-            {result}
-            
+            {result}   
           </div>
-          <ReactTooltip 
-    className="tooltip" 
-    place="top" 
-    type="dark" 
-    effect="solid"
-/>
+    
           </div>
           
  
       </div>
     
         </div>
+        
           </div>
+          
         </main>
+        
       </div>
+      
     </>
   )
 }

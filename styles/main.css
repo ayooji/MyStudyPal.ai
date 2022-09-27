@@ -137,3 +137,35 @@ a {
   cursor: pointer;
 }
 
+
+
+.tooltip-inner {
+  max-width: none; /* default value is 180px */
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.tooltip.top .tooltip-inner {
+  padding: 8px 10px;
+  margin-bottom: -6px;
+}
+
+.tooltip.right .tooltip-inner {
+  padding: 8px 10px;
+  margin-left: -6px;
+}
+
+.tooltip.bottom .tooltip-inner {
+  padding: 8px 10px;
+  margin-top: -6px;
+}
+
+.tooltip.left .tooltip-inner {
+  padding: 8px 10px;
+  margin-right: -6px;
+}
