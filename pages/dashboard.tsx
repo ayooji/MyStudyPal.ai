@@ -1,11 +1,18 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, BellIcon, XMarkIcon,PaperClipIcon } from '@heroicons/react/24/outline'
 import React, { useState, useEffect } from 'react';
 import ReactTooltip from 'react-tooltip';
 
 import styled from 'styled-components'
+import { useRouter } from 'next/router'
+import {
+  Manager,
+  Reference,
+  Popper as ReactPopper
+} from 'react-popper';
+
 
 
 const Form = styled.form`
@@ -257,7 +264,7 @@ export default function Example() {
           <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>📄 Build Resume</li>
           <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>📧 Write Cover Letter</li>
           <li className="list-button" data-tip="What is your essay topic?" onClick={handleClick}>🏫 Any Other School Problem</li>
-          <ReactTooltip />
+          
         </ul>
       </div>
       <div className="result-section w-3/4 bg-gray-200 p-4">
@@ -269,9 +276,17 @@ export default function Example() {
             {result}
             
           </div>
-        
+          <ReactTooltip 
+    className="tooltip" 
+    place="top" 
+    type="dark" 
+    effect="solid"
+/>
           </div>
+          
+ 
       </div>
+    
         </div>
           </div>
         </main>

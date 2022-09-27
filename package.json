@@ -21,6 +21,7 @@
     "react-hook-use-state": "^1.1.0",
     "react-hooks": "^1.0.1",
     "react-merge-refs": "1.1.0",
+    "react-popper-tooltip": "^4.4.2",
     "react-tooltip": "^4.2.21",
     "stripe": "8.201.0",
     "styled-components": "^5.3.5",
