@@ -5,6 +5,9 @@ import { Bars3Icon, BellIcon, XMarkIcon,PaperClipIcon } from '@heroicons/react/2
 import React, { useState, useEffect } from 'react';
 import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import styled from 'styled-components'
+import  startListening  from "react-speech-recognition";
+
+
 
 
 
@@ -48,7 +51,7 @@ const user = {
 }
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
-  { name: 'Saved', href: '#', current: false },
+  
 
 ]
 const userNavigation = [
@@ -297,8 +300,6 @@ What is your phone number, What is the position you are applying for?</Tooltip>}
         
       </ul>
 
-      
-       
       </div>
       <div className="result-section w-3/4 bg-gray-200 p-4">
         <div className="board">

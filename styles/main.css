@@ -252,9 +252,12 @@ a {
 
 @media (max-width:576px) {
   .result-section {
-    padding: 1em;
+    padding: 1em;}
+  .answer-button {
+      margin-top: 1em;
   }
 }
+
 
 
 
