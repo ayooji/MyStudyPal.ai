@@ -6,9 +6,10 @@ import React, { useState, useEffect } from 'react';
 import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import styled from 'styled-components'
 import  startListening  from "react-speech-recognition";
-
-
-
+import { getAnswer } from './api/openai';
+import Button from 'components/ui/Button';
+import { Spin } from 'antd';
+import debounce from 'lodash.debounce';
 
 
 
@@ -64,17 +65,29 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+
+export default function Dashboard(props: any) {
   const [selected, setSelected] = useState('');
   const [result, setResult] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [answer, setAnswer] = useState('');
+  const [subject, setSubject] = useState('');
+
 
   const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
     setSelected(e.currentTarget.innerHTML);
+    setSubject(e.currentTarget.innerHTML);
   };
-
   const handleResultChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setResult(e.target.value);
   };
+  const handleGetAnswer = async () => {
+    setLoading(true);
+    const answer = await getAnswer(result, subject);
+    setAnswer(answer);
+    setLoading(false);
+  };
+  const debouncedGetAnswer = debounce(handleGetAnswer, 500);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -82,6 +95,7 @@ export default function Example() {
     }, 1000);
     return () => clearInterval(interval);
   }, [result]);
+    
     
   return (
     <>
@@ -246,13 +260,11 @@ export default function Example() {
         <main>
           <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
 
-          <div className="flex">
-           
+          <div className="flex">  
         <div className="left-sidebar w-1/4 bg-black p-4">
         <p className="tooltip-text">Use the hints on each subject to enter your question to get the best answer</p>
-        <p className="click-to-get-help"> Click a subject to get help<span role="img" aria-label=""> 😉</span></p>
+        <p className="click-to-get-help"> <span role="img" aria-label="">⬇ </span>Click a subject<span role="img" aria-label=""> ⬇</span></p>
         <ul className="list">
-
         <OverlayTrigger placement="top" overlay={<Tooltip id="math">Type your math problem and the kind of math problem</Tooltip>}>
    <li className="list-button" data-for="math" onClick={handleClick}>📐 Math</li>
 </OverlayTrigger>
@@ -296,19 +308,18 @@ What is your phone number, What is the position you are applying for?</Tooltip>}
 </OverlayTrigger>
 <OverlayTrigger placement="top" overlay={<Tooltip id="other">What is your problem, What kind of problem and what grade level</Tooltip>}>
    <li className="list-button" data-for="other" onClick={handleClick}>🏫 Any Other School Problem</li>
-</OverlayTrigger>
-        
-      </ul>
-
+</OverlayTrigger>       
+</ul>
+</div>
+<div className="result-section w-3/4 bg-gray-200 p-4">
+<div className="board">
+    {selected !== '' && <h2>You selected: {selected}</h2>}
+    <textarea className="question" placeholder="Write your question here" onChange={handleResultChange} value={result} disabled={selected === ''}></textarea>
+    {loading && <Button className="answer-button disabled">Your Answer is Being Generated Please Wait</Button>}
+    {!loading && <Button className="answer-button" onClick={debouncedGetAnswer} disabled={selected === ''}>Get Answer</Button>}   
+    <div className="result-area scrollable">
+    {loading ? <Spin tip="Calculating..."/> : answer ? <p>{answer}</p> : <p>No Answer</p>}  
       </div>
-      <div className="result-section w-3/4 bg-gray-200 p-4">
-        <div className="board">
-          {selected !== '' && <h2>You selected: {selected}</h2>}
-          <textarea className="question" placeholder="Write your question here" onChange={handleResultChange} value={result}></textarea>
-          <button className="answer-button">Get Answer</button>
-          <div className="result-area">
-            {result}   
-          </div>
     
           </div>
           

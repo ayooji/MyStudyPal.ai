@@ -84,22 +84,6 @@ a {
   
 }
 
-.answer-button {
-  background: rgb(244, 245, 244);
-  border: 1px solid rgb(114, 29, 234);
-  border-radius: 4px;
-  cursor: pointer;
-  height: 32px;
-  line-height: 30px;
-  padding: 0 15px;
-  text-decoration-color: white;
-  margin-left: 20;
-  
-}
-
-.answer-button:hover {
-  background: #b795fc;
-}
 
 
 .result-area {
@@ -117,6 +101,8 @@ a {
   border-radius: 4px;
   white-space: pre-line;
 }
+
+
 .list {
   color: rgb(255, 255, 255);
   text-align: left;
@@ -261,9 +247,66 @@ a {
 
 
 
-h2 {
+.result-section h2 {
   text-align: center;
   font-family: sans-serif;
   color: #09010e;
+  animation: slide-in .5s;
+  text-align: center;
+  text-transform: uppercase;
+  
+
 }
 
+@keyframes slide-in {
+  from {
+    transform: translateX(-150%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+.scrollable {
+  overflow: auto;
+}
+
+
+
+
+.result-area p {
+  animation: typing 2s cubic-bezier(0, 0, 0.21, 1);
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+
+.video {
+  position: relative;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+ 
+.video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.click-to-get-help {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: white;
+}
+
+.tooltip-text {
+    
+    color: gray;
+}
