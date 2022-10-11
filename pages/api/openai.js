@@ -1,5 +1,5 @@
 
-const keys = require('./keys');
+const keys = require('../../keys');
 const openai = require('./openai');
 
 module.exports = {
