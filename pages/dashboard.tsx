@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import styled from 'styled-components'
 import  startListening  from "react-speech-recognition";
-import { getAnswer } from './api/openai';
+
 import Button from 'components/ui/Button';
 import { Spin } from 'antd';
 import debounce from 'lodash.debounce';
@@ -67,6 +67,7 @@ function classNames(...classes: string[]) {
 
 
 export default function Dashboard(props: any) {
+  
   const [selected, setSelected] = useState('');
   const [result, setResult] = useState('');
   const [loading, setLoading] = useState(false);
@@ -83,9 +84,24 @@ export default function Dashboard(props: any) {
   };
   const handleGetAnswer = async () => {
     setLoading(true);
-    const answer = await getAnswer(result, subject);
-    setAnswer(answer);
-    setLoading(false);
+    try {
+      const response = await fetch('http://mystudypal.pythonanywhere.com/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          question: result
+        })
+      });
+      const responseJSON = await response.json();
+      console.log(responseJSON);
+      setAnswer(responseJSON.answer);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
   const debouncedGetAnswer = debounce(handleGetAnswer, 500);
 
