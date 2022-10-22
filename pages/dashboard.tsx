@@ -85,7 +85,7 @@ export default function Dashboard(props: any) {
   const handleGetAnswer = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://mystudypal.pythonanywhere.com/', {
+      const response = await fetch('https://mystudypal.pythonanywhere.com/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
