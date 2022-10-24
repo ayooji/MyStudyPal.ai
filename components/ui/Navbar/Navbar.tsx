@@ -33,10 +33,7 @@ const Navbar = () => {
               <Link href="/dashboard">
                 <a className={s.link}>Dashboard</a>
               </Link>
-              <Link href="/">
-                <a className={s.link}>Blog</a>
-              </Link>
-              <Link href="/">
+              <Link href="/price">
                 <a className={s.link}>Pricing</a>
               </Link>
               <Link href="/">

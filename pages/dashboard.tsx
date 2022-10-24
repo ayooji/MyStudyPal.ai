@@ -91,7 +91,8 @@ export default function Dashboard(props: any) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          question: result
+          question: result,
+          subject: subject
         })
       });
       const responseJSON = await response.json();
