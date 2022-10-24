@@ -38,7 +38,7 @@ const createCheckoutSession = async (
           trial_from_plan: true,
           metadata
         },
-        success_url: `${getURL()}/account`,
+        success_url: `${getURL()}/dashboard`,
         cancel_url: `${getURL()}/`
       });
 
