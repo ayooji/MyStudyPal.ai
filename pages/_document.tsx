@@ -4,7 +4,8 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head 
+        />
         <body className="loading">
           <Main />
           <NextScript />
