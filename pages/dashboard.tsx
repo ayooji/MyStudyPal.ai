@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import styled from 'styled-components'
 import  startListening  from "react-speech-recognition";
-
+import { Redirect } from "react-router-dom";
 import Button from 'components/ui/Button';
 import { Spin } from 'antd';
 import debounce from 'lodash.debounce';
@@ -64,6 +64,11 @@ const userNavigation = [
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
+
+const isAuthenticated = () => {
+  // Return true if the user is authenticated
+  // Return false if the user is not authenticated
+};
 
 
 export default function Dashboard(props: any) {
@@ -322,6 +327,9 @@ What is your phone number, What is the position you are applying for, What is th
 <OverlayTrigger placement="top" overlay={<Tooltip id="coverletter">What is your name, What's your email, What is your address,
 What is your phone number, What is the position you are applying for?</Tooltip>}>
    <li className="list-button" data-for="coverletter" onClick={handleClick}>📧 Write Cover Letter</li>
+</OverlayTrigger>
+<OverlayTrigger placement="top" overlay={<Tooltip id="copywriting">Write your word, business, any other detail</Tooltip>}>
+   <li className="list-button" data-for="copywriting" onClick={handleClick}>📧 Copywriting</li>
 </OverlayTrigger>
 <OverlayTrigger placement="top" overlay={<Tooltip id="other">What is your problem, What kind of problem and what grade level</Tooltip>}>
    <li className="list-button" data-for="other" onClick={handleClick}>🏫 Any Other School Problem</li>

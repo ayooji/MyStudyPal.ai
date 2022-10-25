@@ -3,10 +3,13 @@ import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { BoltIcon, ChatBubbleBottomCenterTextIcon, GlobeAltIcon, ScaleIcon } from '@heroicons/react/24/outline'
-import CallToAction from 'components/ui/CallToAction';
-
-
+import { ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import Button from 'components/ui/Button';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Player from 'components/Player';
+import React, { useState, useEffect } from 'react';
+
+
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -69,10 +72,30 @@ const features = [
 
 
 
-export default function HomePage() {
+export default function HomePage(this: any) {
+  const [showPlayer, setShowPlayer] = useState(false);
+
+    const openPlayer = () => {
+        setShowPlayer(true);
+    };
+
+    const closePlayer = () => {
+        setShowPlayer(false);
+    };
+
+  
+  
+
   return (
-   
+    
     <div className="relative overflow-hidden bg-white">
+          {showPlayer && (
+                <Player
+                    video="/MyStudypalDemo.mp4"
+                    title="MyStudypal.ai Demo"
+                    onClose={closePlayer}
+                />
+            )}
       <div className="mx-auto max-w-7xl">
         <div className="relative z-10 bg-white pb-8 sm:pb-16 md:pb-20 lg:w-full lg:max-w-2xl lg:pb-28 xl:pb-32">
           <svg
@@ -106,12 +129,13 @@ export default function HomePage() {
                   </a>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <a
-                    href="#"
-                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-100 px-8 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-200 md:py-4 md:px-10 md:text-lg"
-                  >
-                    Live demo
-                  </a>
+                <button
+                                        onClick={openPlayer}
+                                        className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-100 px-8 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-200 md:py-4 md:px-10 md:text-lg"
+                                    >
+                                        Live demo
+                  </button>
+                
                 </div>
               </div>
             </div>
@@ -119,13 +143,11 @@ export default function HomePage() {
         </div>
       </div>
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        <div className="video-container">
-  <video width="1280" height="720" autoPlay loop muted>
-    <source src="mystudypaldemo.mp4" type="video/mp4"></source>
-  </video>
-</div>
+        <div className="image-container">
+  <img width="1280" height="720" src="logo.jpg" alt="Mystudypal.ai_Logo" ></img>
+  </div>
       </div>
-    <div>
+      <div>
   <div className="bg-white py-12">
   <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div className="lg:text-center">
@@ -161,13 +183,14 @@ export default function HomePage() {
           <span className="block text-indigo-600">Start your free trial today.</span>
         </h2>
       
-            <CallToAction/>
+        <Button>Click "Get Started" below!</Button>
+      
           
         
         
       </div>
     </div>
-  <CallToAction/>
+    <Button>Get Started!</Button> 
 </div>
 </div>
 

@@ -29,10 +29,12 @@
     "react-hooks": "^1.0.1",
     "react-hover": "^3.0.1",
     "react-merge-refs": "1.1.0",
+    "react-native-brightcove-player": "^1.7.0",
     "react-popper-tooltip": "^4.4.2",
     "react-speech-recognition": "^3.9.1",
     "react-tooltip": "^4.2.21",
     "react-ui-library": "^0.14.3",
+    "reactstrap": "^9.1.4",
     "stripe": "8.201.0",
     "styled-components": "^5.3.5",
     "swr": "1.2.0"
