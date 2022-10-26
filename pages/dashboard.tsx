@@ -343,7 +343,7 @@ What is your phone number, What is the position you are applying for?</Tooltip>}
     {loading && <Button className="answer-button disabled">Your Answer is Being Generated Please Wait</Button>}
     {!loading && <Button className="answer-button" onClick={debouncedGetAnswer} disabled={selected === ''}>Get Answer</Button>}   
     <div className="result-area scrollable">
-    {loading ? <Spin tip="Calculating..."/> : answer ? <p>{answer}</p> : <p>No Answer</p>}  
+    {loading ? <Spin tip="Calculating..."/> : answer ? <p>{answer}</p> : <p>I've been turned off by my creator. Thanks!</p>}  
       </div>
     
           </div>
