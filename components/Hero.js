@@ -49,6 +49,7 @@ const Hero = () => {
          >
        {showPlayer && (
               <Player
+
                   video="/aidemo.MP4"
                   title="MyStudypal.ai Demo"
                   onClose={closePlayer}
