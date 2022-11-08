@@ -1,30 +1,30 @@
+
+import { Box } from "./Box.js";
+import { PageMeta } from '../types';
+import { ReactNode } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-
-
-import Navbar from 'components/ui/Navbar';
-import Footer from 'components/ui/Footer';
-import { ReactNode } from 'react';
-import { PageMeta } from '../types';
 
 interface Props {
   children: ReactNode;
   meta?: PageMeta;
 }
 
-export default function Layout({ children, meta: pageMeta }: Props) {
+
+
+export function Layout({ children, meta: pageMeta }: Props) {
   const router = useRouter();
   const meta = {
     title: 'Mystudypal.ai',
-    description: 'The best study AI',
-    canonical: 'https://my-study-pal-ai.vercel.app/',
+    description: ' MyStudyPal.ai is the smartest and easiest way to get help with your school work.',
+    canonical: 'http://localhost:3000/#',
     meta:{
       charset: 'UTF-8',
       name: {
-        keywords: 'Study, AI, mystudypal '
+        keywords: 'Study helper, AI, mystudypal.ai, mystudypal, essay writing, math solving, code writing, study, college essay, essay help, code help, math help, ai answer generator'
        },
      },
-    cardImage: '/logo.jpg',
+    cardImage: '/MyStudyPal.jpg',
 
     ...pageMeta
   };
@@ -35,9 +35,9 @@ export default function Layout({ children, meta: pageMeta }: Props) {
       <Head>
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
-        <link href="/logo.jpg" rel="shortcut icon" />
+        <link href="/MyStudyPal.jpg" rel="shortcut icon" />
         <meta content={meta.description} name="description" />
-        <meta property="og:url" content={`https://my-study-pal-ai.vercel.app/`} />
+        <meta property="og:url" content={`http://localhost:3000/#`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={meta.title} />
         <meta property="og:description" content={meta.description} />
@@ -49,9 +49,17 @@ export default function Layout({ children, meta: pageMeta }: Props) {
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.cardImage} />
       </Head>
-      <Navbar />
-      <main id="skip">{children}</main>
-      <Footer />
+      <Box
+    css={{
+      maxW: "100%"
+    }}
+  >
+    {children}
+   
+  </Box>
+     
     </>
   );
 }
+
+export default Layout;

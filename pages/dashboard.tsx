@@ -7,7 +7,6 @@ import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import styled from 'styled-components'
 import  startListening  from "react-speech-recognition";
 import { Redirect } from "react-router-dom";
-import Button from 'components/ui/Button';
 import { Spin } from 'antd';
 import debounce from 'lodash.debounce';
 
@@ -340,8 +339,8 @@ What is your phone number, What is the position you are applying for?</Tooltip>}
 <div className="board">
     {selected !== '' && <h2>You selected: {selected}</h2>}
     <textarea className="question" placeholder="Write your question here" onChange={handleResultChange} value={result} disabled={selected === ''}></textarea>
-    {loading && <Button className="answer-button disabled">Your Answer is Being Generated Please Wait</Button>}
-    {!loading && <Button className="answer-button" onClick={debouncedGetAnswer} disabled={selected === ''}>Get Answer</Button>}   
+    {loading && <button className="answer-button disabled">Your Answer is Being Generated Please Wait</button>}
+    {!loading && <button className="answer-button" onClick={debouncedGetAnswer} disabled={selected === ''}>Get Answer</button>}   
     <div className="result-area scrollable">
     {loading ? <Spin tip="Calculating..."/> : answer ? <p>{answer}</p> : <p>I've been turned off by my creator. Thanks!</p>}  
       </div>

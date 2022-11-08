@@ -11,6 +11,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.1",
     "@heroicons/react": "^2.0.11",
+    "@nextui-org/react": "^1.0.0-beta.10",
     "@stripe/stripe-js": "1.22.0",
     "@supabase/supabase-auth-helpers": "^1.2.3",
     "@types/react-router-dom": "^5.3.3",
