@@ -1,4 +1,3 @@
-
 import { Box } from "./Box.js";
 import { PageMeta } from '../types';
 import { ReactNode } from 'react';
@@ -17,7 +16,7 @@ export function Layout({ children, meta: pageMeta }: Props) {
   const meta = {
     title: 'Mystudypal.ai',
     description: ' MyStudyPal.ai is the smartest and easiest way to get help with your school work.',
-    canonical: 'http://localhost:3000/#',
+    canonical: 'http://Mystudypal-ai/#',
     meta:{
       charset: 'UTF-8',
       name: {
@@ -48,6 +47,7 @@ export function Layout({ children, meta: pageMeta }: Props) {
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.cardImage} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
       </Head>
       <Box
     css={{
